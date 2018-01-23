@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Very basic counter | JavaScript 1</title>
+  </head>
+  <body>
+    <body style="background-color:hsl(240,0%, 40%);">
+
+<!-- List of buttons and button actions -->
+    <button type="button" onclick="countUp()"
+    onmousedown="mouseDown()" onmouseup="mouseUp()">Count Up</button>
+    <button type="button" onclick="reset()"
+    onmousedown="mouseDown()" onmouseup="mouseUp()">Reset</button>
+    <button type="button" onclick="colorSwap()" name="bonus">BONUS</button>
+    <button type="button" onclick="manually()" name="manual">!!! DO NOT PRESS !!!</button>
+    <br>
+    <br>
+    <div align="center" style="font-size:3000%;" id="counter">0</div>
+
+
+<!--Setting up the scripts and global variable -->
+
+<script type="text/javascript">
+  var count = 0;
+
+  function countUp(){ /* This function increases the count */
+    console.log("Number increases by 1");
+    count = count + 1
+    document.getElementById("counter").innerHTML = count;
+    document.getElementById("counter").style.color = "blue";
+  }
+  function reset() { /* Less surprisingly this resets the count */
+    console.log("Reseting counter and body background color.");
+    console.log("Setting counter color to red.");
+    count = 0;
+    document.getElementById("counter").innerHTML = count;
+    document.getElementById("counter").style.color = "red";
+    document.body.style.backgroundColor = "hsl(240, 0%, 40%)";
+    document.getElementById("counter").style.fontSize = "3000%";
+  }
+  function mouseDown(){ /* Temporarily hides the counter */
+      console.log("Hide");
+  //document.getElementById("flashes").innerHTML = x; this was some test
+  document.getElementById("counter").style.opacity = "0";
+}
+function mouseUp(){ /* Brings back the counter */
+  console.log("Unhide, spam console");
+  document.getElementById("counter").style.opacity = "1";
+}
+function colorSwap(){ /* Whatever, copied RGB random generator from web and
+                         tailored it into god-tier HSL value system */
+  console.log("Switching background color, still keeping it cool 8)");
+  document.body.style.backgroundColor = 'hsl(' + Math.floor(Math.random()
+  * 360) + ',20%, 20%';
+}
+function manually(){ /* This is so called humour. Found out that I failed,
+                        didn't figure out how to make it reseted only by Reset */
+  document.getElementById("counter").style.fontSize = "1000%";
+  document.getElementById("counter").innerHTML = "YOU ARE NOW BREATHING MANUALLY";
+  document.getElementById("counter").style.color = "#FFF";
+  console.log("Passing on the horrible curse of manual breathing for next 30 seconds");
+  console.log("Pressing Reset might help");
+
+}
+</script>
+
+
+
+
+  </body>
+</html>
